@@ -1,0 +1,44 @@
+GENERAL:
+  CUDA_VISIBLE_DEVICES:  '0,1,2,3'
+  NET_CPUS: [0,1,2,3]
+  LOSS_GPU: 0
+
+LOG:
+  SHOW_PR_SCALAR: False
+
+DATASET:
+  NAME: 'CLS'
+  SUB_DIR: ''
+  DATASET_DIR: '/train/execute/slagcar/wx_slag/slag_work/slag_work/pytorch_cover/data/slagcar_cover'
+  TRAIN_SETS: ('cover_train.txt', )
+#  TEST_SETS: ('pkdata_cover.txt', )
+  TEST_SETS: ('cover_test.txt', )
+  NUM_CLASSES: 1
+  IMAGE_SIZE: (224, 224)  #height/width
+  EVAL_BATCH_SIZE: 4
+  TRAIN_BATCH_SIZE: 128
+  NUM_WORKERS: 10
+
+MODEL:
+  PRETRAIN_MODEL: '/train/execute/slagcar/wx_slag/slag_work/slag_work/pytorch_cover/modelsave/slagcover_46000.pth'
+
+AUGMENTATION:
+  NAME: 'CLS'
+  MAX_EXPAND: 1.25
+  CROP: (0.75,1.0,0.7,1.3,0.3)
+
+TRAIN:
+  MAX_ITER: 20000
+  EVAL_ITER: 20000
+  SAVE_ITER: 1000
+  LOG_LOSS_ITER: 10
+  WARMUP_EPOCH: 2
+
+  OPTIMIZER:
+    LR: 5e-4
+    WEIGHT_DECAY: 1e-3
+  LR_SCHEDULER:
+    STEPS: (8000, 12000, 15000, 18000)
+
+LOSS:
+  OVERLAP_THRESHOLD: 0.5

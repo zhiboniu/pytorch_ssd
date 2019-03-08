@@ -1,0 +1,58 @@
+GENERAL:
+  CUDA_VISIBLE_DEVICES:  '0,1,2,3'
+  NET_CPUS: [0,1,2,3]
+  LOSS_GPU: 0
+
+LOG:
+  SHOW_PR_SCALAR: False
+
+DATASET:
+  NAME: 'DEEPV'
+  SUB_DIR: ''
+  DATASET_DIR: '/train/execute/Dangercar/cls_3main/data'
+  TRAIN_SETS: ('train_cls3.txt', )
+  TEST_SETS: ('test_cls3.txt', )
+  NUM_CLASSES: 4
+  IMAGE_SIZE: (400, 400)  #height/width
+  EVAL_BATCH_SIZE: 4
+  TRAIN_BATCH_SIZE: 32
+  NUM_WORKERS: 12
+
+AUGMENTATION:
+  MAX_EXPAND: 1.2
+  EXPAND_PROB: 0.3
+  CROP: (None,
+    (0.8,1.0,1,1,0.7),
+    (0.8,1.0,1,1,0.9))
+
+MODEL:
+  BASE: backbone
+  SSD_TYPE: 'SSD'
+  PRETRAIN_MODEL: '/train/execute/personupper/pytorch/libraf_80000_reducedfc.pth'
+  STEPS: [8, 16, 32]
+  MIN_SIZES: [[15,25], [35,50], [75,100]]
+  MAX_SIZES: []
+  ASPECT_RATIOS: [[0.75, 1.2], [0.75, 1.2], [0.75, 1.2]]
+  CLIP: False
+  FLIP: False
+  SSD:
+#    EXTRA_CONFIG: [[11, 12, 13], [48, 48, 48]]
+    EXTRA_CONFIG: (64, 'S', 64)
+#  INIT_WEIGHTS: 'xavier'
+MOBILE:
+  EXPAN : 3
+
+TRAIN:
+  MAX_ITER: 5000
+  EVAL_ITER: 5000
+  SAVE_ITER: 1000
+  LOG_LOSS_ITER: 10
+  WARMUP_EPOCH: 8
+
+  OPTIMIZER:
+    LR: 1e-2
+  LR_SCHEDULER:
+    STEPS: (3000, 4000)
+
+LOSS:
+  OVERLAP_THRESHOLD: 0.5
