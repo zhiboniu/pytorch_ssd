@@ -1,0 +1,26 @@
+./Anaconda2-5.2.0-Linux-x86_64.sh
+source /root/.baserc
+添加conda清华源
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+设置搜索时显示通道地址
+conda config --set show_channel_urls yes
+创建python3.5环境
+conda create --name python35 python=3.5
+source activate python35
+安装opencv
+conda install -c https://conda.anaconda.org/menpo opencv3
+安装pytorch
+pip install torch==0.3.1
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple torchvision
+可视化
+pip install tensorboardX
+#pip install tensorflow（可视化）
+安装coco api
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple cython
+pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
+
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple matplotlib
+
+pip install tqdm
+
+

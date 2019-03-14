@@ -1,0 +1,47 @@
+conda create --name python27 python=2.7
+source activate python27
+conda install -c https://conda.anaconda.org/menpo opencv3
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple torch==0.3.1
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple torchvision
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorboardX
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple cython
+pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple matplotlib==2.0
+pip install tqdm
+
+##################没用###################
+   21  pip install scikit-image
+   22  vim /root/.pip/pip.conf
+   23  pip install scikit-image
+   24  pip update
+   25  pip upgrade
+   26  pip install scikit-image
+   27  pip install --upgrade pip
+   28  pip install scikit-image
+   29  python
+   30  pip install scikit-image --upgrade
+   31  sudo apt-get install python-matplotlib python-numpy python-pil python-scipy
+   32  sudo apt-get install build-essential cython
+   33  sudo apt-get install python-skimage
+   34  vim /etc/apt/sources.list
+   35  ls
+   36  sudo apt-get install python-skimage
+   37  sudo apt-get update
+   38  sudo apt-get install python-skimage
+   39  python\
+   40  python
+   41  pip install skimage
+   42  pip install scikit-image
+   43  pip install matplotlib
+#####################################
+
+
+pip install scikit-image
+pip install graphviz
+python
+ls
+python eval.py --tocaffe True
+history
+
+#pip install -i https://pypi.tuna.tsinghua.edu.cn/simple cPickle
+#python -m pip install cPickle
